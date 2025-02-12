@@ -9,12 +9,13 @@
 <body>
 <h1>Forgot Password</h1>
 
-<form action="saveuser" method="post">
+<form action="resetpassword" method="post">
 
 Email: <input type="text" name="email"/><br><br>
 <input type="submit" value="Send"/>
 </form>
 <br><br>
+<a href="login">Return to Login</a>
 <a href="login">Return to Login</a>
 
 </body>

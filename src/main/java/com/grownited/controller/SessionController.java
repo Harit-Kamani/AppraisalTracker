@@ -29,4 +29,9 @@ public class SessionController {
 	public String forgetPassword() {
 		return "ForgetPassword";
 	}
+	
+	@PostMapping("resetpassword")
+	public String resetPassword() {
+		return "ChangePassword";
+	}
 }
