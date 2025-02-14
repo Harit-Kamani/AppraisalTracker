@@ -20,7 +20,7 @@ public class SessionController {
 		return "Login";
 	}
 	
-	@PostMapping("saveuser")
+	@PostMapping("saveuser") 
 	public String saveUser() {
 		return "Login";
 	}

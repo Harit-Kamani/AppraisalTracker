@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForgetPassword</title>
+    <title>NewState</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-100">
@@ -20,15 +20,15 @@
         </div>
     </nav>
     
-    <!-- Forgot Password Form -->
+    <!-- New State Form -->
     <div class="max-w-lg mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
-        <h2 class="text-2xl font-semibold text-center text-blue-700">Reset Your Password</h2>
-        <form action="ForgetPasswordServlet" method="post" class="mt-6">
+        <h2 class="text-2xl font-semibold text-center text-blue-700">Add New State</h2>
+        <form action="NewStateServlet" method="post" class="mt-6">
             <div class="mb-4">
-                <label class="block text-gray-700">Email Address</label>
-                <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded" required>
+                <label class="block text-gray-700">State Name</label>
+                <input type="text" name="stateName" class="w-full p-2 border border-gray-300 rounded" required>
             </div>
-            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">Send Reset Link</button>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">Add State</button>
         </form>
     </div>
     
