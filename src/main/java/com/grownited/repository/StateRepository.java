@@ -7,5 +7,9 @@ import com.grownited.entity.StateEntity;
 
 @Repository
 public interface StateRepository extends JpaRepository<StateEntity, Integer> {
+
+	
+	
+	
 	
 }

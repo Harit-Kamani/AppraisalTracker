@@ -13,9 +13,9 @@
         <div class="container mx-auto flex justify-between">
             <a href="Login" class="text-lg font-semibold">Appraisal Tracker</a>
             <div>
-                <a href="Login" class="mr-4">Login</a>
-                <a href="Signup" class="mr-4">Signup</a>
-                <a href="ForgetPassword">Forgot Password</a>
+                <a href="login" class="mr-4">Login</a>
+                <a href="signup" class="mr-4">Signup</a>
+                <a href="forgetPassword">Forgot Password</a>
             </div>
         </div>
     </nav>

@@ -3,43 +3,57 @@ package com.grownited.controller;
 import com.grownited.entity.EmployeeEntity;
 import com.grownited.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/employees")
+@Controller  // ✅ Changed from @RestController to @Controller
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
-    private EmployeeService employeeService; // Fixed variable naming (lowercase)
+    private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<List<EmployeeEntity>> getAllEmployees() {
-        return ResponseEntity.ok(employeeService.getAllEmployees());
+    public String getAllEmployees(Model model) {
+        List<EmployeeEntity> employees = employeeService.getAllEmployees();
+        model.addAttribute("employees", employees);  // ✅ Send data to JSP
+        return "Employees";  // ✅ Returns Employees.jsp
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<EmployeeEntity> getEmployeeById(@PathVariable Long id) {
+    @GetMapping("/add")
+    public String showAddEmployeeForm(Model model) {
+        model.addAttribute("employee", new EmployeeEntity());
+        return "AddEmployee";  // ✅ Returns AddEmployee.jsp
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute EmployeeEntity employee) {
+        employeeService.createEmployee(employee);
+        return "redirect:/employees";  // ✅ Redirect to employee list
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditEmployeeForm(@PathVariable Long id, Model model) {
         EmployeeEntity employee = employeeService.getEmployeeById(id);
-        return (employee != null) ? ResponseEntity.ok(employee) : ResponseEntity.notFound().build();
+        if (employee != null) {
+            model.addAttribute("employee", employee);
+            return "EditEmployee";  // ✅ Returns EditEmployee.jsp
+        }
+        return "redirect:/employees";  // ✅ Redirect if not found
     }
 
-    @PostMapping
-    public ResponseEntity<EmployeeEntity> createEmployee(@RequestBody EmployeeEntity employee) {
-        return ResponseEntity.ok(employeeService.createEmployee(employee));
+    @PostMapping("/update/{id}")
+    public String updateEmployee(@PathVariable Long id, @ModelAttribute EmployeeEntity employee) {
+        employeeService.updateEmployee(id, employee);
+        return "redirect:/employees";  // ✅ Redirect after update
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<EmployeeEntity> updateEmployee(@PathVariable Long id, @RequestBody EmployeeEntity employee) {
-        EmployeeEntity updatedEmployee = employeeService.updateEmployee(id, employee);
-        return (updatedEmployee != null) ? ResponseEntity.ok(updatedEmployee) : ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
-        return ResponseEntity.ok("Employee deleted successfully");
+        return "redirect:/employees";  // ✅ Redirect after deletion
     }
 }
