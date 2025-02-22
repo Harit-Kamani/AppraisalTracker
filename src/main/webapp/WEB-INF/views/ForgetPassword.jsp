@@ -15,7 +15,7 @@
             <div>
                 <a href="login" class="mr-4">Login</a>
                 <a href="signup" class="mr-4">Signup</a>
-                <a href="forgetPassword">Forgot Password</a>
+               <!--  <a href="forgetPassword">Forgot Password</a>-->
             </div>
         </div>
     </nav>

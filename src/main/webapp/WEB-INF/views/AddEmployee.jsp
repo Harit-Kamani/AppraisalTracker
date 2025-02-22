@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AddEmployee</title>
+    <title>add</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 

@@ -26,17 +26,19 @@
         
         <div class="text-center mt-4">
             <a href="signup" class="text-blue-600 hover:underline">Sign up</a> | 
-            <a href="forgetPassword" class="text-blue-600 hover:underline">Forgot Password?</a>
+            <a href="forgetpassword" class="text-blue-600 hover:underline">Forgot Password?</a>
+                <a href="listuser" class="text-blue-600 hover:underline">list users</a>
         </div>
         
-        <nav class="mt-6">
+    <!--    <nav class="mt-6">
             <ul class="flex justify-between">
-                <li><a href="Employees" class="text-blue-700 hover:underline">Employees</a></li>
-                <li><a href="AddEmployee.jsp" class="text-blue-700 hover:underline">Add Employee</a></li>
-                <li><a href="EmployeeDetails.jsp" class="text-blue-700 hover:underline">Employee Details</a></li>
-                <li><a href="EditEmployee.jsp" class="text-blue-700 hover:underline">Edit Employee</a></li>
+                <li><a href="employees" class="text-blue-700 hover:underline">Employees</a></li>
+                <li><a href="addEmployee" class="text-blue-700 hover:underline">Add Employee</a></li>
+                <li><a href="employeeDetails" class="text-blue-700 hover:underline">Employee Details</a></li>
+                <li><a href="editEmployee" class="text-blue-700 hover:underline">Edit Employee</a></li>
             </ul>
         </nav>
     </div>
 </body>
 </html>
+-->

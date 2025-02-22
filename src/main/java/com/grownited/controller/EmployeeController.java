@@ -1,3 +1,5 @@
+
+
 package com.grownited.controller;
 
 import com.grownited.entity.EmployeeEntity;
@@ -16,26 +18,26 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping
+    @GetMapping("Employees")
     public String getAllEmployees(Model model) {
         List<EmployeeEntity> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees);  // ✅ Send data to JSP
         return "Employees";  // ✅ Returns Employees.jsp
     }
 
-    @GetMapping("/add")
+   @GetMapping("AddEmployee")
     public String showAddEmployeeForm(Model model) {
         model.addAttribute("employee", new EmployeeEntity());
         return "AddEmployee";  // ✅ Returns AddEmployee.jsp
     }
 
-    @PostMapping("/save")
+    @PostMapping("save")
     public String saveEmployee(@ModelAttribute EmployeeEntity employee) {
         employeeService.createEmployee(employee);
         return "redirect:/employees";  // ✅ Redirect to employee list
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("edit/{id}")
     public String showEditEmployeeForm(@PathVariable Long id, Model model) {
         EmployeeEntity employee = employeeService.getEmployeeById(id);
         if (employee != null) {
@@ -45,15 +47,17 @@ public class EmployeeController {
         return "redirect:/employees";  // ✅ Redirect if not found
     }
 
-    @PostMapping("/update/{id}")
-    public String updateEmployee(@PathVariable Long id, @ModelAttribute EmployeeEntity employee) {
+    @PostMapping("update/{id}")
+   public String updateEmployee(@PathVariable Long id, @ModelAttribute EmployeeEntity employee) {
         employeeService.updateEmployee(id, employee);
         return "redirect:/employees";  // ✅ Redirect after update
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("delete/{id}")
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
         return "redirect:/employees";  // ✅ Redirect after deletion
     }
 }
+
+

@@ -15,7 +15,7 @@
             <div>
                 <a href="login" class="mr-4">Login</a>
                 <a href="signup" class="mr-4">Signup</a>
-                <a href="forgetPassword">Forgot Password</a>
+                <a href="forgetpassword">Forgot Password</a>
             </div>
         </div>
     </nav>
@@ -32,6 +32,13 @@
                 <label class="block text-gray-700">Last Name</label>
                 <input type="text" name="lastName" class="w-full p-2 border border-gray-300 rounded" required>
             </div>
+            
+                        <div class="mb-4">
+                <label class="block text-gray-700">Contact</label>
+                <input type="text" name="contact" class="w-full p-2 border border-gray-300 rounded" required>
+            </div>
+            
+            
             <div class="mb-4">
                 <label class="block text-gray-700">Email</label>
                 <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded" required>
