@@ -3,28 +3,37 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-
+import com.grownited.service.MailService;
 
 @Controller
 public class SessionController {
 	
-	
+@Autowired
+MailService serviceMail;	
 @Autowired
 UserRepository repoUser;
+@Autowired
+PasswordEncoder encoder;
+
 
 	@GetMapping(value = {"/" , "signup"})
 	public String signup() {
 		return "Signup";
 	}
+	
+	
 	
 	@GetMapping("login")
 	public String login() {
@@ -35,8 +44,18 @@ UserRepository repoUser;
 	public String saveUser(UserEntity userEntity) {
 		userEntity.setRole("USER");
 		userEntity.setActive(true);
+		
+		String encPassword = encoder.encode(userEntity.getPassword());
+		userEntity.setPassword(encPassword);
+		
 		repoUser.save(userEntity);
+		
+		 //send mail
+		 serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
+		
 		return "Login";
+		
+		
 	}
 	
 	@GetMapping("forgetpassword")

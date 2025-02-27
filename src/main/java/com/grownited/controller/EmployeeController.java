@@ -57,7 +57,7 @@ public class EmployeeController {
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
         return "redirect:/employees";  // ✅ Redirect after deletion
-    }
-}
+    }	
+												}
 
 
