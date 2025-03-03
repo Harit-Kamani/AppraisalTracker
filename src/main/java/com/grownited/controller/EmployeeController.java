@@ -1,8 +1,7 @@
-
-
 package com.grownited.controller;
 
-import com.grownited.entity.EmployeeEntity;
+import com.grownited.entity.EmployeeEntity;  
+import com.grownited.repository.EmployeeRepository;
 import com.grownited.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +11,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller  // ✅ Changed from @RestController to @Controller
-@RequestMapping("/employees")
+//@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private EmployeeRepository employeerepository;
+
+    
+    
+    @GetMapping("addEmployee")
+    public String addEmployee() {
+    	return "AddEmployee";
+    }
+    
+    
+    @PostMapping("saveEmployee")
+    public String saveEmployee(EmployeeEntity employeeentity) {
+	   employeerepository.save(employeeentity);
+        return "redirect:/listEmployee";  // ✅ Returns AddEmployee.jsp if direct than addemployee jsp should be returned
+    }
+ 
+    @GetMapping("listEmployee")
+    public String listEmployee(Model model) {
+    	List<EmployeeEntity> employeeList = employeerepository.findAll();
+    	model.addAttribute("employeeList",employeeList);
+    	return "EmployeeDetails";
+    }
+    
+    
+
+    
+    //rest of funtions
 
     @GetMapping("Employees")
     public String getAllEmployees(Model model) {
@@ -25,17 +52,13 @@ public class EmployeeController {
         return "Employees";  // ✅ Returns Employees.jsp
     }
 
-   @GetMapping("AddEmployee")
-    public String showAddEmployeeForm(Model model) {
-        model.addAttribute("employee", new EmployeeEntity());
-        return "AddEmployee";  // ✅ Returns AddEmployee.jsp
-    }
+  
 
-    @PostMapping("save")
-    public String saveEmployee(@ModelAttribute EmployeeEntity employee) {
-        employeeService.createEmployee(employee);
-        return "redirect:/employees";  // ✅ Redirect to employee list
-    }
+//    @PostMapping("save")
+//    public String saveEmployee(@ModelAttribute EmployeeEntity employee) {
+//        employeeService.createEmployee(employee);
+//        return "redirect:/employees";  // ✅ Redirect to employee list
+//    }
 
     @GetMapping("edit/{id}")
     public String showEditEmployeeForm(@PathVariable Long id, Model model) {
@@ -58,6 +81,6 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
         return "redirect:/employees";  // ✅ Redirect after deletion
     }	
-												}
+}
 
 

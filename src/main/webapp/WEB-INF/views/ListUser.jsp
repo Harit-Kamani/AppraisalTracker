@@ -41,10 +41,10 @@
                                 <td class="px-6 py-4 whitespace-nowrap">${u.gender}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">${u.createdAt}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">${u.active}</td>
+                                
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <a href="viewuser?userId=${u.userId}" class="text-blue-500 hover:text-blue-700">View</a> |
-                                    <a href="deleteuser?userId=${u.userId}" class="text-red-500 hover:text-red-700">Delete</a> |
-                                    <a href="#" class="text-green-500 hover:text-green-700">Edit</a>
+                                 <td> <a href="viewuser?userId=${u.userId }">View</a> | <a href="deleteuser?userId=${u.userId }">Delete</a> | Edit</td>
+                                   
                                 </td>
                             </tr>
                         </c:forEach>

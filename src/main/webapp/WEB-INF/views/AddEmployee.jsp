@@ -12,10 +12,11 @@
 
         <h2 class="text-2xl font-bold text-blue-600 mb-4">Add Employee</h2>
 
-        <form action="addEmployee" method="post" class="space-y-4">
-            <input type="text" name="name" placeholder="Name" class="w-full p-2 border rounded" required>
+        <form action="saveEmployee" method="post" class="space-y-4">
+            <input type="text" name="firstName" placeholder="first Name" class="w-full p-2 border rounded" required>
+             <input type="text" name="lastName" placeholder="last Name" class="w-full p-2 border rounded" required>
             <input type="email" name="email" placeholder="Email" class="w-full p-2 border rounded" required>
-            <input type="text" name="role" placeholder="Role" class="w-full p-2 border rounded" required>
+            <input type="text" name="salary" placeholder="salary" class="w-full p-2 border rounded" required>
             <input type="text" name="department" placeholder="Department" class="w-full p-2 border rounded" required>
             <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded">Add Employee</button>
         </form>

@@ -1,44 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Appraisal Tracker</title>
+    
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-blue-100 flex items-center justify-center h-screen">
-    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold text-center text-blue-700 mb-4">Login</h2>
-        
-        <form action="login" method="post" class="space-y-4">
-            <div>
-                <label class="block text-gray-700">Email</label>
-                <input type="email" name="email" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+<body class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <img src="assets/img/logo.png" alt="Logo" class="mb-2" width="50">
+                            <h4 class="card-title">Login</h4>
+                            <p class="text-muted">Enter your credentials to continue</p>
+                        </div>
+                        
+                        <form action="login" method="post" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                                <div class="invalid-feedback">Please enter a valid email.</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                                <div class="invalid-feedback">Please enter your password.</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                        
+                        <div class="text-center mt-3">
+                            <a href="signup" class="text-primary">Sign up</a> |
+                            <a href="forgetpassword" class="text-primary">Forgot Password?</a> |
+                            <a href="listuser" class="text-primary">List Users</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div>
-                <label class="block text-gray-700">Password</label>
-                <input type="password" name="password" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
-        </form>
-        
-        <div class="text-center mt-4">
-            <a href="signup" class="text-blue-600 hover:underline">Sign up</a> | 
-            <a href="forgetpassword" class="text-blue-600 hover:underline">Forgot Password?</a>
-                <a href="listuser" class="text-blue-600 hover:underline">list users</a>
         </div>
-        
-    <!--    <nav class="mt-6">
-            <ul class="flex justify-between">
-                <li><a href="employees" class="text-blue-700 hover:underline">Employees</a></li>
-                <li><a href="addEmployee" class="text-blue-700 hover:underline">Add Employee</a></li>
-                <li><a href="employeeDetails" class="text-blue-700 hover:underline">Employee Details</a></li>
-                <li><a href="editEmployee" class="text-blue-700 hover:underline">Edit Employee</a></li>
-            </ul>
-        </nav>
     </div>
+    
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
--->
