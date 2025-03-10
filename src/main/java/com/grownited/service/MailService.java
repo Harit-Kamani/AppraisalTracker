@@ -13,7 +13,7 @@ public class MailService {
 	public void sendWelcomeMail(String email,String firstName) {
 		String subject = "Welcome to e-commercefmcg";
 		String body = "Hey" +firstName+ "We're excited to have you on board as our premium customer";
-		String from = "smitghedia33@gmail.com";
+		String from = "kamaniharit77@gmail.com";
 		
 		//logic
 		SimpleMailMessage message = new SimpleMailMessage() ;

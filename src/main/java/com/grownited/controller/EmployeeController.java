@@ -1,6 +1,8 @@
 package com.grownited.controller;
 
-import com.grownited.entity.EmployeeEntity;  
+import com.grownited.entity.DepartmentEntity;
+import com.grownited.entity.EmployeeEntity;
+import com.grownited.repository.DepartmentRepository;
 import com.grownited.repository.EmployeeRepository;
 import com.grownited.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,15 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeerepository;
 
+    @Autowired
+    DepartmentRepository repoDepartment;
     
     
     @GetMapping("addEmployee")
-    public String addEmployee() {
+    public String addEmployee(Model model) {
+    	List<DepartmentEntity> allDepartments = repoDepartment.findAll();
+        // Add the department list to the model
+        model.addAttribute("allDepartment", allDepartments);
     	return "AddEmployee";
     }
     

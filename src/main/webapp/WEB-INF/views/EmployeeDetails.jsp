@@ -18,7 +18,7 @@
     </div>
 </body>
 </html>
--->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -52,9 +52,11 @@
     <h2>Employee List</h2>
 
     <table>
+    
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Department ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -62,10 +64,12 @@
                 <th>Salary</th>
             </tr>
         </thead>
+        
         <tbody>
             <c:forEach var="eList"  items="${employeeList}">
                 <tr>
                     <td>${eList.id}</td>
+                    <td>${eList.departmentId}</td>
                     <td>${eList.firstName}</td>
                     <td>${eList.lastName}</td>
                     <td>${eList.email}</td>
@@ -74,7 +78,110 @@
                 </tr>
             </c:forEach>
         </tbody>
+        
     </table>
 
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    
+    <!-- Include NiceAdmin CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Include Sidebar -->
+   <jsp:include page="AdminHeader.jsp"></jsp:include>
+   <jsp:include page="AdminSidebar.jsp"></jsp:include>
+   <jsp:include page="AdminJs.jsp"></jsp:include>
+   <jsp:include page="AdminCss.jsp"></jsp:include>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Employee List</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item active">Employee List</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Employee List</h5>
+
+                            <!-- Search Bar -->
+                            <div class="mb-3">
+                                <input type="text" id="tableSearch" class="form-control" placeholder="Search Employees...">
+                            </div>
+
+                            <!-- Employee Table -->
+                            <table class="table table-striped datatable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Department ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Department</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="eList" items="${employeeList}">
+                                        <tr>
+                                            <td>${eList.id}</td>
+                                            <td>${eList.departmentId}</td>
+                                            <td>${eList.firstName}</td>
+                                            <td>${eList.lastName}</td>
+                                            <td>${eList.email}</td>
+                                            <td>${eList.department}</td>
+                                            <td>${eList.salary}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <!-- End Employee Table -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main><!-- End #main -->
+
+    <!-- Include Footer -->
+    <jsp:include page="AdminFooter.jsp"></jsp:include>
+
+    <!-- Include JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById("tableSearch").addEventListener("keyup", function () {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll(".datatable tbody tr");
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    </script>
 </body>
 </html>

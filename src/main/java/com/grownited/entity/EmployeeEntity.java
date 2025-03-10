@@ -9,7 +9,7 @@ public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;   
-    
+    private Integer departmentId;
     private String firstName;
     private String lastName;
     private String email;
@@ -102,4 +102,14 @@ public class EmployeeEntity {
     public void setSalary(Double salary) {
         this.salary = salary;
     }
+
+	public Integer getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Integer departmentId) {
+		this.departmentId = departmentId;
+	}
+    
+    
 }

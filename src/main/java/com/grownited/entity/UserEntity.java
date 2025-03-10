@@ -1,38 +1,33 @@
 package com.grownited.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class UserEntity {
 
-    @Id // primary key
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     private String firstName;
     private String lastName;
+
     @Column(unique = true)
     private String email;
+
     private String password;
     private String contact;
     private String role; // admin, vendor, customer 
+
     private LocalDateTime createdAt;
     private Boolean active;
-    private String gender;
+    
+    private String gender; // ✅ Fixed issue (removed invalid character)
 
-    // Automatically set createdAt before persisting the entity
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-    }
+    // Default constructor (required by Hibernate)
+    public UserEntity() {}
 
     // Getters and Setters
     public Integer getUserId() {
@@ -91,14 +86,6 @@ public class UserEntity {
         this.role = role;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -113,5 +100,13 @@ public class UserEntity {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

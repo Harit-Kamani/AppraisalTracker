@@ -1,5 +1,5 @@
 package com.grownited.controller;
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +16,8 @@ import com.grownited.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.grownited.service.MailService;
+
+import jakarta.servlet.http.HttpSession;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -45,7 +47,7 @@ PasswordEncoder encoder;
 	
 	@PostMapping("saveuser") 
 	public String saveUser(UserEntity userEntity) {
-		userEntity.setRole("USER");
+		userEntity.setRole("ADMIN");
 		userEntity.setActive(true);
 		
 		String encPassword = encoder.encode(userEntity.getPassword());
@@ -58,6 +60,29 @@ PasswordEncoder encoder;
 		
 		return "Login";
 		
+		
+	}
+	
+	@PostMapping("authenticate")
+	public String authenticate(String email, String password, Model model, HttpSession session) {
+		
+		Optional<UserEntity> op = repoUser.findByEmail(email);
+		if (op.isPresent()) {
+			UserEntity dbUser = op.get();
+			
+			boolean ans =encoder.matches(password, dbUser.getPassword());
+			if (ans==true) {
+				session.setAttribute("user", dbUser);
+				if (dbUser.getRole().equals("ADMIN")) {
+					return"AdminDashboard";
+					
+				} else {
+					return"Home";
+
+				}
+			} 
+		}
+		return "Login";
 		
 	}
 	

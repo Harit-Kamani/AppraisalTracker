@@ -23,7 +23,7 @@
                             <p class="text-muted">Enter your credentials to continue</p>
                         </div>
                         
-                        <form action="login" method="post" class="needs-validation" novalidate>
+                        <form action="authenticate" method="post" class="needs-validation" novalidate>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" name="email" id="email" class="form-control" required>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +21,13 @@
             <input type="email" name="email" placeholder="Email" class="w-full p-2 border rounded" required>
             <input type="text" name="salary" placeholder="salary" class="w-full p-2 border rounded" required>
             <input type="text" name="department" placeholder="Department" class="w-full p-2 border rounded" required>
+            Department:
+            <select name="departmentId">
+            <option value="">Select Department</option>
+            <c:forEach items ="${allDepartment}" var="d">
+            <option value="${d.departmentId}">${d.departmentName}</option>
+            </c:forEach>
+            </select>
             <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded">Add Employee</button>
         </form>
 
