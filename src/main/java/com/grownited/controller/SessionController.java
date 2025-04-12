@@ -41,8 +41,8 @@ PasswordEncoder encoder;
 	
 	
 	@GetMapping("login")
-	public String login() {
-		return "Login";
+ 	public String login() {
+		return "Login";  
 	}
 	
 	@PostMapping("saveuser") 
@@ -58,7 +58,7 @@ PasswordEncoder encoder;
 		 //send mail
 		 serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		
-		return "Login";
+		 return"Login";
 		
 		
 	}

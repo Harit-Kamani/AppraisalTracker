@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <footer id="footer" class="footer">
     <div class="copyright">
-      © Copyright <strong><span>e-commerceFMCG</span></strong>. All Rights Reserved
+      © Copyright <strong><span>Appraisal Tracker</span></strong>. All Rights Reserved
     </div>
     
   </footer>

@@ -41,8 +41,8 @@
                         
                         <div class="text-center mt-3">
                             <a href="signup" class="text-primary">Sign up</a> |
-                            <a href="forgetpassword" class="text-primary">Forgot Password?</a> |
-                            <a href="listuser" class="text-primary">List Users</a>
+                            <a href="forgetpassword" class="text-primary">Forgot Password?</a> 
+                           <!--  <a href="listuser" class="text-primary">List Users</a>  -->
                         </div>
                     </div>
                 </div>

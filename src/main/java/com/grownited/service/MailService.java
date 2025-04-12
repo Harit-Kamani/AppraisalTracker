@@ -11,7 +11,7 @@ public class MailService {
 	@Autowired
 	JavaMailSender mailSender;
 	public void sendWelcomeMail(String email,String firstName) {
-		String subject = "Welcome to e-commercefmcg";
+		String subject = "Welcome to Appraisal Tracker";
 		String body = "Hey" +firstName+ "We're excited to have you on board as our premium customer";
 		String from = "kamaniharit77@gmail.com";
 		

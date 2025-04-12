@@ -1,3 +1,6 @@
+<jsp:include page="AdminHeader.jsp"></jsp:include>
+<jsp:include page="AdminJs.jsp"></jsp:include>
+<jsp:include page="AdminCss.jsp"></jsp:include>
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -23,12 +26,19 @@
                         <i class="bi bi-circle"></i><span>Employee List</span>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="listEmployee">
+                        <i class="bi bi-circle"></i><span>User</span>
+                    </a>
+                </li>
+                
             </ul>
         </li><!-- End Users Nav -->
 
-    <!--    <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#categories-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-basket2"></i><span>Categories</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-basket2"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="categories-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
@@ -42,9 +52,9 @@
                     </a>
                 </li>
             </ul>
-        </li> End Categories Nav -->
+        </li><!-- End Categories Nav -->
         
- <!--       <li class="nav-item">
+        <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#subcategories-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-tag"></i><span>SubCategories</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
@@ -60,7 +70,7 @@
             </a>
         </li>
     </ul>
-</li> End SubCategories Nav -->
+</li><!-- End SubCategories Nav -->
         
 
         <li class="nav-item">
@@ -129,3 +139,5 @@
 
     </ul>
 </aside>
+
+<jsp:include page="AdminFooter.jsp"></jsp:include>

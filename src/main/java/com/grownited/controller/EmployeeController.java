@@ -1,6 +1,6 @@
 package com.grownited.controller;
 
-import com.grownited.entity.DepartmentEntity;
+import com.grownited.entity.DepartmentEntity; 
 import com.grownited.entity.EmployeeEntity;
 import com.grownited.repository.DepartmentRepository;
 import com.grownited.repository.EmployeeRepository;
